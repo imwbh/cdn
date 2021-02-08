@@ -1091,7 +1091,7 @@ Set_iptables() {
   fi
 }
 Update_Shell() {
-  sh_new_ver=$(wget --no-check-certificate -qO- -t1 -T3 "https://cdn.jsdelivr.net/gh/CokeMine/ServerStatus-Hotaru@master/status.sh" | grep 'sh_ver="' | awk -F "=" '{print $NF}' | sed 's/\"//g' | head -1)
+  sh_new_ver=$(wget --no-check-certificate -qO- -t1 -T3 "https://cdn.jsdelivr.net/gh/imwbh/cdn/ServerStatus-Hotaru/status.sh" | grep 'sh_ver="' | awk -F "=" '{print $NF}' | sed 's/\"//g' | head -1)
   [[ -z ${sh_new_ver} ]] && echo -e "${Error} 无法链接到 Github !" && exit 0
   if [[ -e "/etc/init.d/status-client" ]]; then
     rm -rf /etc/init.d/status-client
@@ -1101,7 +1101,7 @@ Update_Shell() {
     rm -rf /etc/init.d/status-server
     Service_Server_Status_server
   fi
-  wget -N --no-check-certificate "https://cdn.jsdelivr.net/gh/CokeMine/ServerStatus-Hotaru@master/status.sh" && chmod +x status.sh
+  wget -N --no-check-certificate "https://cdn.jsdelivr.net/gh/imwbh/cdn/ServerStatus-Hotaru/status.sh" && chmod +x status.sh
   echo -e "脚本已更新为最新版本[ ${sh_new_ver} ] !(注意：因为更新方式为直接覆盖当前运行的脚本，所以可能下面会提示一些报错，无视即可)" && exit 0
 }
 menu_client() {
